@@ -14,6 +14,6 @@ defmodule Secrets do
   def secret_xor(secret), do: &(bxor(&1, secret))
 
   def secret_combine(secret_function1, secret_function2) do
-    &(secret_function2.(secret_function1.(&1)))
+    fn arg -> secret_function2.(secret_function1.(arg)) end
   end   
 end
