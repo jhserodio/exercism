@@ -15,8 +15,7 @@ defmodule LogLevel do
     label = to_label(level, legacy?)
     
     cond do
-      label == :error -> :ops
-      label == :fatal -> :ops
+      label in [:error, :fatal] -> :ops
       label == :unknown && legacy? -> :dev1
       label == :unknown -> :dev2
       true -> false
