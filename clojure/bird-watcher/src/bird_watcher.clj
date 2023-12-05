@@ -18,7 +18,11 @@
 (defn busy-days [birds]
   (count (filterv #(> % 4) birds)))
 
-(defn odd-week? [birds]
+(defn odd-week-rage? [birds, offset]
   (and
-    (= (count (partition-by #(= % 1) birds)) 7)
-    (= (count (partition-by #(= % 0) birds)) 7)))
+    (= (count (partition-by #(= % 1) birds)) offset)
+    (= (count (partition-by #(= % 0) birds)) offset)))
+
+(defn odd-week?
+  ([birds] (odd-week-rage? birds 7))
+  ([birds offset] (odd-week-rage? birds offset)))
