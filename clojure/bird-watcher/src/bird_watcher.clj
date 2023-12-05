@@ -7,7 +7,7 @@
   (last birds))
 
 (defn inc-bird [birds]
-  (conj (pop birds) (+ (last birds) 1)))
+  (update birds 6 inc))
 
 (defn day-without-birds? [birds]
   (.contains birds 0))
