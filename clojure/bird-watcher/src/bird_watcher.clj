@@ -13,7 +13,7 @@
   (.contains birds 0))
 
 (defn n-days-count [birds n]
-  (reduce + (subvec birds 0 n)))
+  (apply + (take n birds)))
 
 (defn busy-days [birds]
   (count (filterv #(> % 4) birds)))
